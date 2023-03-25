@@ -82,4 +82,12 @@ print (flatten(l))
 
 
 #10
+def foo(a):
+    b = []
+    for x in a:
+        if a.count(x)>1:b.append(x)
+    return b
+
+print(foo([2, 3 ,3 ,5, 4, 2]))
+
 
