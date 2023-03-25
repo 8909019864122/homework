@@ -14,7 +14,7 @@ else:
 a='xcvbnjh'
 s='f'
 k=0
-for i in range (0, len(a)-1)
+for i in range (0, len(a)-1):
     if a[i]==s:
         k+=1
     if k==2:
@@ -67,7 +67,7 @@ else:
         print('Безопасный пароль')
 
 #8
-l = [7, 4, 8, 2, [3, 1, 3, [7, 2]], 3, 9, [1, 2]]
+l = [4, 2, 9, [5, 2, 4, [8, 3]], 4, [5, 8]]
 def flatten(x):
     a = []
     for i in x:
