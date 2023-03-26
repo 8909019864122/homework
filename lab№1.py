@@ -11,10 +11,10 @@ else:
     print(-1)
 
 # 3
-a='xcvbnjh'
+a='xcfvbfnjh'
 s='f'
 k=0
-for i in range (0, len(a)-1):
+for i in range (0, len(a)):
     if a[i]==s:
         k+=1
     if k==2:
@@ -50,38 +50,37 @@ for i in range(0, len(b)-1):
 print(check)
 
 #7
-password = input()
-if password.isalnum() == False:
-    print('Небезопасный пароль')
+i=str(input())
+while len(i)<16:
+    i=input()
+
+a,b,c,d=False,False,False,True
+for e in i:
+    if e.isupper(): a=True
+    elif e.islower(): b=True
+    elif e.isnumeric(): c=True
+    else: d=False
+if a and b and c and d:
+    print('Безопасный пароль')
 else:
-    count_Upper = False
-    count_Lower = False
-    for symbol in password:
-        if symbol == symbol.upper():
-            count_Upper = True
-        if symbol == symbol.lower():
-            count_Upper = True
-    if count_Upper or count_Lower == False:
-        print('Небезопасный пароль')
-    else:
-        print('Безопасный пароль')
+    print('Небезопасный пароль')
 
 #8
-l = [4, 2, 9, [5, 2, 4, [8, 3]], 4, [5, 8]]
-def flatten(x):
-    a = []
-    for i in x:
-        if isinstance(i, list):
-            a.extend(flatten(i))
+def z(arr):
+    for i in arr:
+        if type(i) is list:
+            z(i)
         else:
-            a.append(i)
-            return a
-print (flatten(l))
+            print(i,end=' ')
+    return
+
+a=[8,[6,4],[7,[1,9]]]
+z(a)
 
 #9
-def max_key(dic):
-    print('Словарь: ', dic)
-    print('Ключ максимального значения в словаре: ', max(dic, key=dic.get))
+def max_key(dict):
+    print('Словарь: ', dict) #вывод словаря {'a': 6, 'b': 8, 'c': 1, 'd': 120}
+    print('Ключ максимального значения в словаре: ', max(dict, key=dict.get)) # возвращает максимальное значение ключа из словаря
 max_key({'a': 6, 'b': 8, 'c': 1, 'd': 120})
 
 #10
@@ -92,5 +91,4 @@ def foo(a):
     return b
 
 print(foo([2, 3 ,3 ,5, 4, 2]))
-
 
