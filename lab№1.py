@@ -79,7 +79,10 @@ def flatten(x):
 print (flatten(l))
 
 #9
-
+def max_key(dic):
+    print('Словарь: ', dic)
+    print('Ключ максимального значения в словаре: ', max(dic, key=dic.get))
+max_key({'a': 6, 'b': 8, 'c': 1, 'd': 120})
 
 #10
 def foo(a):
