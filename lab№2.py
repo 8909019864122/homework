@@ -93,3 +93,20 @@ num = '55 68 74'
 print(f'{sum(map(float, num.split())):g}')
 
 #10
+import re
+def string_sum(text):
+    temp = []
+    result = []
+    keys, values = range(48, 58), range(0, 10)
+    nums = dict(zip(keys, values))
+
+    for i in re.findall('\d+', text):
+        for j in i:
+            if ord(j) in nums:
+                temp.append(nums[ord(j)])
+        temp = sum(10 ** i[0] * i[1] for i in enumerate(reversed(temp)))
+        result.append(temp)
+        temp = []
+    return sum(result)
+
+string_sum('175 конфет и 84 леденца')
