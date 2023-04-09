@@ -20,11 +20,13 @@ if __name__ == '__main__':
     remove_common(a, b)
 
 #3
-a = [1,2,3,3,3,3,3]
-for i in a:
-    if a.count(i)<3:
-        a.remove(i)
-print(len(a), a)
+def function(nums,):
+    b=[]
+    for i in nums:
+        if nums.count(i)>=4:
+            b.append(i)
+    print(b)
+function([1,2,3,3,3,3,3])
 
 #4
 def sum(lst):
