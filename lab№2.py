@@ -53,9 +53,12 @@ def sequence(lst):
 sequence([1, 2, 3, 2, 4, 5, 6, 7])
 
 #6
+def function(text):
+    count = [i for i in range(len(text))]
+    print(''.join(text[i].upper() if (i%2 != 0) else text[i] for i in count))
+
 text = input()
-count = [i for i in range(len(text))]
-print(''.join(text[i].upper() if (i%2 != 0) else text[i] for i in count))
+function(text)
 
 #7
 n = int(input())
