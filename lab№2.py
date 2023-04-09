@@ -59,19 +59,17 @@ print(''.join(text[i].upper() if (i%2 != 0) else text[i] for i in count))
 
 #7
 n = int(input())
-for i in range(1, n+1,2):
-    if i==1:
-        print('' * 3, '*' * i)
-    elif i == 3:
-        print('' * 2, '*' * i)
-    else:
-        print('', '*' * i)
+w = n*2-1
+a = [ ]
 
-for i in range(n-2, 0, -2):
-    if i==3:
-        print(''*2, '*' * i)
-    else:
-        print('' * 3, '*' * i)
+for y in range(w):
+   a.append([])
+   for x in range(w):
+       d = n - abs(x+1-n) - abs(y+1-n)
+       a[y].append( '*' if d > 0 else " ")
+
+for l in a:
+    print(*l,sep='')
 
 #8
 def matrix(num):
@@ -84,13 +82,25 @@ def matrix(num):
                 mat[i][j] = mat[i - 1][j] + mat[i][j - 1]
     for i in range(len(mat)):
         for j in range(len(mat[i])):
-            print(mat[i][j], end='')
-        print()
+            print(mat[i][j]," ", end='')
+        print( sep=", ")
 matrix(5)
 
+
 #9
-num = '55 68 74'
-print(f'{sum(map(float, num.split())):g}')
+def findSum(str1):
+    temp = '0'
+    Sum = 0
+
+    for c in str1:
+        if (c.isdigit()):
+            temp += c
+        else:
+            Sum += int(temp)
+            temp = '0'
+    return Sum + int(temp)
+str1 = '54 мрм5 56'
+print(findSum(str1))
 
 #10
 import re
