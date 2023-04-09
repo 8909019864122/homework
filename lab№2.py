@@ -29,30 +29,42 @@ def function(nums,):
 function([1,2,3,3,3,3,3])
 
 #4
-def sum(lst):
-    total = 0
-    for element in lst:
-        if (type(element) == type([])):
-            total = total  + sum(element)
+def nestsum(lst):
+    nest_list = []
+    for item in lst:
+        if isinstance(item, list) or isinstance(item, tuple):
+            nest_list.append(sum(flatten(item)))
         else:
-            total = total + element
-    return total
-print('Сумма элементов равна:', sum([[1,2],[3,4]]))
+            nest_list.append(item)
+    return nest_list
+def flatten(lst):
+    flat_list = []
+    for item in lst:
+        if isinstance(item, list) or isinstance(item, tuple):
+            flat_list.extend(flatten(item))
+        else:
+            flat_list.append(item)
+    return flat_list
+n = [1, 2, [3, 4], [2, 5, [3, 4, [5]]]]
+print(n, '->', nestsum(n))
 
 #5
-def sequence(lst):
-    temp, save = [], []
+def sequence(lst): 
+    if len(lst) == 1:
+        return lst
+    temp, save = [], [] 
     for i in range(len(lst) - 1):
-        if lst[i + 1] == lst[i] + 1:
+        if lst[i + 1] >= lst[i]:
             temp.append(lst[i]) if temp == [] else temp
             temp.append(lst[i + 1])
-            if save <= temp:
+            if len(save) <= len(temp):
                 save = temp
         else:
             temp = []
     return save
 
-sequence([1, 2, 3, 2, 4, 5, 6, 7])
+s = [1, 2, 3, 2, 4, 5, 6, 7]
+print(s, ' ->', sequence(s))
 
 #6
 def function(text):
