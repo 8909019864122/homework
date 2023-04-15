@@ -54,7 +54,7 @@ def sequence(lst):
         return lst
     temp, save = [], [] 
     for i in range(len(lst) - 1):
-        if lst[i + 1] >= lst[i]:
+        if lst[i + 1] > lst[i]:
             temp.append(lst[i]) if temp == [] else temp
             temp.append(lst[i + 1])
             if len(save) <= len(temp):
@@ -75,18 +75,20 @@ text = input()
 function(text)
 
 #7
-n = int(input())
-w = n*2-1
-a = [ ]
-
-for y in range(w):
-   a.append([])
-   for x in range(w):
-       d = n - abs(x+1-n) - abs(y+1-n)
-       a[y].append( '*' if d > 0 else " ")
-
-for l in a:
-    print(*l,sep='')
+n=int(input())
+for i in range(0,n+1):
+    for j in range(0,n-i):
+        print(end=" ")
+    for j in range(0,i):
+        print("*",end=" ")
+    print()
+if i==n:
+    for i in range(n-1,0,-1):
+        for j in range(0,n-i):
+            print(end=" ")
+        for j in range(0,i):
+            print("*",end=" ")
+        print()
 
 #8
 def matrix(num):
