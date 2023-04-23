@@ -1,4 +1,4 @@
-  #1
+#1
 from collections import Counter
 def transpose(mat):
     return list(zip(*mat))
@@ -18,7 +18,7 @@ def assign_pets(lst):
 #3
 def rarest_word(string):
     if not string or string.isdigit():
-        return 'Слов нет'
+        return 'Нет слов'
     new_string = ''
     for i in string:
         if i.isalpha() or i.isspace():
@@ -27,7 +27,7 @@ def rarest_word(string):
     word_freqs = Counter(split_string)
 
     if not word_freqs:
-        return 'Слов нет'
+        return 'Нет слов'
 
     words = [i for i in word_freqs if word_freqs.get(i) == min(word_freqs.values())]
     return sorted(words)[0]
@@ -35,13 +35,13 @@ def rarest_word(string):
 #4
 def most_frequent_word(string):
     if not string or string.isdigit():
-        return 'Букв нет'
+        return 'Нет букв'
     new_string = ''.join(filter(str.isalpha, string.lower()))
 
     letters = Counter(new_string)
 
     if not letters:
-        return 'Букв нет'
+        return 'Нет букв'
 
     max_value = max(letters.values())
 
@@ -75,7 +75,7 @@ def freq_sort(array):
     return result
 
 #7
-def three_conseq_words(string):  # задача 7 - проверка непрерывной последовательности из трех слов.
+def three_conseq_words(string):
     array = string.split()
     count = 0
     for i in range(len(array)):
@@ -103,8 +103,8 @@ def max_consequence(string):
 def math_expression(string):
     try:
         return eval(string)
-    except Exception as e:
-        return e
+    except Exception as x:
+        return x
 
 #10
 def summed_dict(list_of_dicts):
